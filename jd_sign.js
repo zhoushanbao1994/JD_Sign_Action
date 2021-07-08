@@ -100,7 +100,7 @@ function sendNotificationIfNeed() {
   let MESSAGE = desp.replace(/[\r\n]/g,"")
   console.log(TITEL)
   console.log(MESSAGE)
-  let url = encodeURI(`https://api.day.app/${BARK_KEY}/${TITEL}/${MESSAGE}`)
+  let url = encodeURI(`https://api.day.app/${BARK_KEY}/${TITEL}/内容`)
 
   const bark_options ={
     //uri:  `https://api.day.app/${BARK_KEY}/${TITEL}/helloworld`,
