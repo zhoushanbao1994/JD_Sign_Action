@@ -95,13 +95,15 @@ function sendNotificationIfNeed() {
   /****************************** BARK Start*********************************/
   // 去除末尾的换行
   let BARK_KEY = bark_key.replace(/[\r\n]/g,"")
+  //let TITEL = text.replace(/[\r\n.]/g,"")
   let TITEL = text.replace(/[\r\n.]/g,"")
   let MESSAGE = desp.replace(/[\r\n]/g,"")
   console.log(TITEL)
   console.log(MESSAGE)
 
   const bark_options ={
-    uri:  `https://api.day.app/${BARK_KEY}/${TITEL}/helloworld`,
+    //uri:  `https://api.day.app/${BARK_KEY}/${TITEL}/helloworld`,
+    uri:  `https://api.day.app/${BARK_KEY}/你好/helloworld`,
     //form: { text, desp },
     json: true,
     method: 'POST'
