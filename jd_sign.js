@@ -62,7 +62,6 @@ function sendNotificationIfNeed() {
 
   let text = "京东签到_" + new Date().Format('yyyy.MM.dd');
   let desp = fs.readFileSync(result_path, "utf8")
-  console.log("京东签到_")
   console.log(text)
   console.log(desp)
 
@@ -96,9 +95,11 @@ function sendNotificationIfNeed() {
   /****************************** BARK Start*********************************/
   // 去除末尾的换行
   let BARK_KEY = bark_key.replace(/[\r\n]/g,"")
+  let TITEL = text.replace(/[\r\n]/g,"")
+  let MESSAGE = desp.replace(/[\r\n]/g,"")
 
   const bark_options ={
-    uri:  `https://api.day.app/${BARK_KEY}/${text}/${desp}`,
+    uri:  `https://api.day.app/${BARK_KEY}/${text}/helloworld`,
     //form: { text, desp },
     json: true,
     method: 'POST'
