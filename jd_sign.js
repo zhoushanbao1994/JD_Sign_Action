@@ -122,46 +122,30 @@ function sendNotificationIfNeed() {
   let url = encodeURI(`https://api.day.app/${BARK_KEY}/${TITEL}/${MESSAGE}`)
   console.log(url)
 
-  //const bark_options ={
-  //  method: 'POST',
-  //  uri:  url,
-  //  'auth' : {
-  //    'group': 'JD'
-  //  },
-  //  json: true
-  //}
-//
-  //bark_rp.post(bark_options).then(res=>{
-  //  const code = res['errno'];
-  //  if (code == 200) {
-  //    console.log("BARK 通知发送成功，任务结束！")
-  //  }
-  //  else {
-  //    console.log(res);
-  //    console.log("BARK 通知发送失败，任务中断！")
-  //    fs.writeFileSync(error_path, JSON.stringify(res), 'utf8')
-  //  }
-  //}).catch((err)=>{
-  //  console.log("BARK 通知发送失败，任务中断！")
-  //  fs.writeFileSync(error_path, err, 'utf8')
-  //})
-  /****************************** BARK End*********************************/
-  var httpRequest = new XMLHttpRequest();//第一步：创建需要的对象
-  httpRequest.open("post", url, true); //第二步：打开连接
-  httpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");//设置请求头 注：post方式必须设置请求头（在建立连接后设置请求头）
-  //httpRequest.send("group=JD");//发送请求 将情头体写在send中
-  httpRequest.send();//发送请求 将情头体写在send中
-  /**
-    * 获取数据后的处理程序
-  */
-  httpRequest.onreadystatechange = function () {//请求后的回调接口，可将请求成功后要执行的程序写在其中
-    if (httpRequest.readyState == 4 && httpRequest.status == 200) {//验证请求是否发送成功
-        var json = httpRequest.responseText;//获取到服务端返回的数据
-        console.log(json);
+  const bark_options ={
+    method: 'POST',
+    uri:  url,
+    'auth' : {
+      'group': 'JD'
+    },
+    json: true
+  }
+
+  bark_rp.post(bark_options).then(res=>{
+    const code = res['errno'];
+    if (code == 200) {
+      console.log("BARK 通知发送成功，任务结束！")
     }
-  };
-  
-  console.log("+++++++++++++++++++++++++++++++++++++++");
+    else {
+      console.log(res);
+      console.log("BARK 通知发送失败，任务中断！")
+      fs.writeFileSync(error_path, JSON.stringify(res), 'utf8')
+    }
+  }).catch((err)=>{
+    console.log("BARK 通知发送失败，任务中断！")
+    fs.writeFileSync(error_path, err, 'utf8')
+  })
+  /****************************** BARK End*********************************/
 }
 
 function main() {
