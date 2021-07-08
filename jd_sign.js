@@ -93,14 +93,14 @@ function sendNotificationIfNeed() {
   // 去除末尾的换行
   let BARK_KEY = bark_key.replace(/[\r\n]/g,"")
 
-  const options ={
+  const bark_options ={
     uri:  `https://api.day.app/${BARK_KEY}/%E6%A0%87%E9%A2%98/%E6%8E%A8%E9%80%81%E5%86%85%E5%AE%B9`,
     form: { text, desp },
     json: true,
     method: 'POST'
   }
 
-  rp.post(options).then(res=>{
+  rp.post(bark_options).then(res=>{
     const code = res['errno'];
     if (code == 0) {
       console.log("BARK 通知发送成功，任务结束！")
