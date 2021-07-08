@@ -121,12 +121,11 @@ function sendNotificationIfNeed() {
   /****************************** BARK Start*********************************/
   // 去除末尾的换行
   let BARK_KEY = bark_key.replace(/[\r\n]/g,"")
-  //let TITEL = text.replace(/[\r\n.]/g,"")
+  
   let TITEL = text.replace(/[\r\n.]/g,"")
   let MESSAGE = desp.replace(/[\r\n]/g,"")
-  console.log(TITEL)
-  console.log(MESSAGE)
-  let url = encodeURI(`https://api.day.app/${BARK_KEY}/${TITEL}/内容`)
+
+  let url = encodeURI(`https://api.day.app/${BARK_KEY}/${TITEL}/${disp1}`)
 
   const bark_options ={
     uri:  url,
