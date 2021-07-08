@@ -67,15 +67,29 @@ function sendNotificationIfNeed() {
   desp_array = desp.split("\n\n");    // 将结果拆分为数组
   console.log(text)
   console.log(desp_array)
+  let disp1 = "";
+  let disp2 = "";
+  let flag = 0;
   console.log("---------------------- start -----------------------")
   for (var i = 0; i < desp_array.length; i ++) {
     let tmp = desp_array[i]
     console.log(tmp)
-    if(tmp.search("签到概览") != -1) {
-      break;
+    if(flag == 0) {
+      disp1 += tmp;
+      if(tmp.search("签到概览") != -1) {
+        flag = 1;
+      }
+    }
+    else {
+      disp2 += tmp;
     }
   }
   console.log("--------------------- end ------------------------")
+  
+  console.log("--------------------- disp1 ------------------------")
+  console.log(disp1)
+  console.log("--------------------- disp2 ------------------------")
+  console.log(disp2)
 
   /****************************** Server酱 Start*********************************/
   // 去除末尾的换行
