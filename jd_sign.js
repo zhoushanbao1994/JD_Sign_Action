@@ -67,7 +67,7 @@ function sendNotificationIfNeed() {
   desp_array = desp.split("\n\n");    // 将结果拆分为数组
   console.log(text)
   console.log(desp_array)
-  console.log("---------------------------------------------")
+  console.log("---------------------- start -----------------------")
   for (var i = 0; i < desp_array.length; i ++) {
     let tmp = desp_array.slice(i)
     console.log(tmp)
@@ -75,6 +75,7 @@ function sendNotificationIfNeed() {
       break;
     }
   }
+  console.log("--------------------- end ------------------------")
 
   /****************************** Server酱 Start*********************************/
   // 去除末尾的换行
