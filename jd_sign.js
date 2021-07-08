@@ -69,7 +69,7 @@ function sendNotificationIfNeed() {
   console.log(desp_array)
   console.log("---------------------- start -----------------------")
   for (var i = 0; i < desp_array.length; i ++) {
-    let tmp = desp_array.slice(i)
+    let tmp = desp_array[i]
     console.log(tmp)
     if(tmp.search("签到概览") != -1) {
       break;
