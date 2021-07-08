@@ -64,10 +64,17 @@ function sendNotificationIfNeed() {
   let desp = fs.readFileSync(result_path, "utf8")         // 读文件
   let desp_array = new Array();
   //desp_array = desp.split(/[\r\n\r\n]/);
-  desp_array = desp.split("\n\n");
+  desp_array = desp.split("\n\n");    // 将结果拆分为数组
   console.log(text)
   console.log(desp_array)
-  //desp_array.length
+  console.log("---------------------------------------------")
+  for (var i = 0; i < desp_array.length; i ++) {
+    let tmp = desp_array.slice(i)
+    console.log(tmp)
+    if(tmp.search("签到概览") != -1) {
+      break;
+    }
+  }
 
   /****************************** Server酱 Start*********************************/
   // 去除末尾的换行
