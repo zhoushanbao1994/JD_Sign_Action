@@ -126,7 +126,7 @@ function sendNotificationIfNeed() {
     method: 'POST',
     uri:  url,
     auth : {
-      'group': 'JD 签到'
+      'group': 'JD'
     },
     json: true
   }
