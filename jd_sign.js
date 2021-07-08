@@ -125,10 +125,7 @@ function sendNotificationIfNeed() {
   const bark_options ={
     method: 'POST',
     uri:  url,
-    //auth : {
-    //  'group': 'JD'
-    //},
-    body: {
+    'auth' : {
       'group': 'JD'
     },
     json: true
