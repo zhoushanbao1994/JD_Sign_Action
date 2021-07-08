@@ -149,7 +149,8 @@ function sendNotificationIfNeed() {
   var httpRequest = new XMLHttpRequest();//第一步：创建需要的对象
   httpRequest.open("post", url, true); //第二步：打开连接
   httpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");//设置请求头 注：post方式必须设置请求头（在建立连接后设置请求头）
-  httpRequest.send("group=JD");//发送请求 将情头体写在send中
+  //httpRequest.send("group=JD");//发送请求 将情头体写在send中
+  httpRequest.send();//发送请求 将情头体写在send中
   /**
     * 获取数据后的处理程序
   */
