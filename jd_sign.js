@@ -99,7 +99,7 @@ function sendNotificationIfNeed() {
   let MESSAGE = desp.replace(/[\r\n]/g,"")
 
   const bark_options ={
-    uri:  `https://api.day.app/${BARK_KEY}/${text}/helloworld`,
+    uri:  `https://api.day.app/${BARK_KEY}/${TITEL}/helloworld`,
     //form: { text, desp },
     json: true,
     method: 'POST'
