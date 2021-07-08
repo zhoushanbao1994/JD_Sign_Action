@@ -64,7 +64,7 @@ function sendNotificationIfNeed() {
   let desp = fs.readFileSync(result_path, "utf8")         // 读文件
   let desp_array = new Array();
   //desp_array = desp.split(/[\r\n\r\n]/);
-  desp_array = desp.split("\r\n\r\n");
+  desp_array = desp.split("\n\n");
   console.log(text)
   console.log(desp_array)
   //desp_array.length
