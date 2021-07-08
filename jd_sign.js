@@ -123,14 +123,17 @@ function sendNotificationIfNeed() {
   console.log(url)
 
   const bark_options ={
+    method: 'POST',
     uri:  url,
-    json: true,
-    method: 'POST'
+    headers: {
+      'group': 'JD 签到'
+    },
+    json: true
   }
 
   bark_rp.post(bark_options).then(res=>{
     const code = res['errno'];
-    if (code == 0) {
+    if (code == 200) {
       console.log("BARK 通知发送成功，任务结束！")
     }
     else {
