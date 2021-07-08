@@ -11,6 +11,8 @@ const download = require('download')
 const cookie = process.env.JD_COOKIE
 // Server酱SCKEY
 const push_key = process.env.PUSH_KEY
+// BARK SCKEY
+const bark_key = process.env.SECRET_BARK_KEY
 
 // 京东脚本文件
 const js_url = 'https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js'
@@ -60,6 +62,7 @@ function sendNotificationIfNeed() {
   let text = "京东签到_" + new Date().Format('yyyy.MM.dd');
   let desp = fs.readFileSync(result_path, "utf8")
 
+  /****************************** Server酱 Start*********************************/
   // 去除末尾的换行
   let SCKEY = push_key.replace(/[\r\n]/g,"")
 
@@ -84,6 +87,34 @@ function sendNotificationIfNeed() {
     console.log("通知发送失败，任务中断！")
     fs.writeFileSync(error_path, err, 'utf8')
   })
+  /****************************** Server酱 End*********************************/
+
+  /****************************** BARK Start*********************************/
+  // 去除末尾的换行
+  let BARK_KEY = bark_key.replace(/[\r\n]/g,"")
+
+  const options ={
+    uri:  `https://api.day.app/${BARK_KEY}/%E6%A0%87%E9%A2%98/%E6%8E%A8%E9%80%81%E5%86%85%E5%AE%B9`,
+    form: { text, desp },
+    json: true,
+    method: 'POST'
+  }
+
+  rp.post(options).then(res=>{
+    const code = res['errno'];
+    if (code == 0) {
+      console.log("BARK 通知发送成功，任务结束！")
+    }
+    else {
+      console.log(res);
+      console.log("BARK 通知发送失败，任务中断！")
+      fs.writeFileSync(error_path, JSON.stringify(res), 'utf8')
+    }
+  }).catch((err)=>{
+    console.log("BARK 通知发送失败，任务中断！")
+    fs.writeFileSync(error_path, err, 'utf8')
+  })
+  /****************************** BARK End*********************************/
 }
 
 function main() {
