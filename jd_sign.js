@@ -5,6 +5,7 @@
 const exec = require('child_process').execSync
 const fs = require('fs')
 const rp = require('request-promise')
+const bark_rp = require('request-promise')
 const download = require('download')
 
 // 京东cookie
@@ -100,7 +101,7 @@ function sendNotificationIfNeed() {
     method: 'POST'
   }
 
-  rp.post(bark_options).then(res=>{
+  bark_rp.post(bark_options).then(res=>{
     const code = res['errno'];
     if (code == 0) {
       console.log("BARK 通知发送成功，任务结束！")
