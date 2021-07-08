@@ -119,7 +119,7 @@ function sendNotificationIfNeed() {
   let TITEL = text.replace(/[\r\n.]/g,"")
   let MESSAGE = disp1
 
-  let url = encodeURI(`https://api.day.app/${BARK_KEY}/${TITEL}/${MESSAGE}`)
+  let url = encodeURI(`https://api.day.app/${BARK_KEY}/${TITEL}/${MESSAGE}?group=JDSignin`)
   console.log(url)
 
   const bark_options ={
