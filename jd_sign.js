@@ -97,6 +97,8 @@ function sendNotificationIfNeed() {
   let BARK_KEY = bark_key.replace(/[\r\n]/g,"")
   let TITEL = text.replace(/[\r\n]/g,"")
   let MESSAGE = desp.replace(/[\r\n]/g,"")
+  console.log(TITEL)
+  console.log(MESSAGE)
 
   const bark_options ={
     uri:  `https://api.day.app/${BARK_KEY}/${TITEL}/helloworld`,
