@@ -103,7 +103,7 @@ function sendNotificationIfNeed() {
 
   const bark_options ={
     //uri:  `https://api.day.app/${BARK_KEY}/${TITEL}/helloworld`,
-    uri:  `https://api.day.app/${BARK_KEY}/你好/helloworld`,
+    uri:  `https://api.day.app/${BARK_KEY}/%E6%A0%87%E9%A2%98/%E6%8E%A8%E9%80%81%E5%86%85%E5%AE%B9`,
     //form: { text, desp },
     json: true,
     method: 'POST'
