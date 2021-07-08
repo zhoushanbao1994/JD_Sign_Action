@@ -15,6 +15,7 @@ on:
 env:
   JD_COOKIE: ${{ secrets.JD_COOKIE }}
   PUSH_KEY: ${{ secrets.PUSH_KEY }}
+  SECRET_BARK_KEY: ${{ secrets.SECRET_BARK_KEY }}
   UPLOAD_BESULT_DIR: true
 
 jobs:
