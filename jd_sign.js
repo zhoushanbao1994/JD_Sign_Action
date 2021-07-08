@@ -61,9 +61,9 @@ function sendNotificationIfNeed() {
   }
 
   let text = "京东签到_" + new Date().Format('yyyy.MM.dd');
-  let desp = fs.readFileSync(result_path, "utf8")
+  let desp = fs.readFileSync(result_path, "utf8")         // 读文件
   console.log(text)
-  console.log(desp)
+  console.log(desp.split("\r\n"))
 
   /****************************** Server酱 Start*********************************/
   // 去除末尾的换行
@@ -103,9 +103,7 @@ function sendNotificationIfNeed() {
   let url = encodeURI(`https://api.day.app/${BARK_KEY}/${TITEL}/内容`)
 
   const bark_options ={
-    //uri:  `https://api.day.app/${BARK_KEY}/${TITEL}/helloworld`,
     uri:  url,
-    //form: { text, desp },
     json: true,
     method: 'POST'
   }
