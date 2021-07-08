@@ -68,28 +68,22 @@ function sendNotificationIfNeed() {
   console.log(text)
   console.log(desp_array)
   let disp1 = "";
-  let disp2 = "";
-  let flag = 0;
   console.log("---------------------- start -----------------------")
   for (var i = 0; i < desp_array.length; i ++) {
     let tmp = desp_array[i]
-    console.log(tmp)
-    if(flag == 0) {
+    //console.log(tmp)
+    if(tmp.search("签到概览") != -1) {
       disp1 += tmp;
-      if(tmp.search("签到概览") != -1) {
-        flag = 1;
-      }
-    }
-    else {
-      disp2 += tmp;
+      break;
     }
   }
+  disp1 += "\n";
+  disp1 += desp_array[desp_array.length-1]
   console.log("--------------------- end ------------------------")
   
-  console.log("--------------------- disp1 ------------------------")
+  console.log("\r\n--------------------- disp1 ------------------------")
   console.log(disp1)
-  console.log("--------------------- disp2 ------------------------")
-  console.log(disp2)
+  console.log("--------------------- disp1 ------------------------\r\n")
 
   /****************************** Server酱 Start*********************************/
   // 去除末尾的换行
@@ -121,11 +115,11 @@ function sendNotificationIfNeed() {
   /****************************** BARK Start*********************************/
   // 去除末尾的换行
   let BARK_KEY = bark_key.replace(/[\r\n]/g,"")
-  
-  let TITEL = text.replace(/[\r\n.]/g,"")
-  let MESSAGE = desp.replace(/[\r\n]/g,"")
 
-  let url = encodeURI(`https://api.day.app/${BARK_KEY}/${TITEL}/${disp1}`)
+  let TITEL = text.replace(/[\r\n.]/g,"")
+  let MESSAGE = disp1
+
+  let url = encodeURI(`https://api.day.app/${BARK_KEY}/${TITEL}/${MESSAGE}`)
 
   const bark_options ={
     uri:  url,
