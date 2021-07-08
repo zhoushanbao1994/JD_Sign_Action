@@ -120,6 +120,7 @@ function sendNotificationIfNeed() {
   let MESSAGE = disp1
 
   let url = encodeURI(`https://api.day.app/${BARK_KEY}/${TITEL}/${MESSAGE}`)
+  console.log(url)
 
   const bark_options ={
     uri:  url,
