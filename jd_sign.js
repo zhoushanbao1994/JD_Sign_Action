@@ -101,7 +101,7 @@ function sendNotificationIfNeed() {
   console.log(MESSAGE)
 
   const bark_options ={
-    uri:  `https://api.day.app/${BARK_KEY}/${TITEL}/helloworld`,
+    uri:  `https://api.day.app/${BARK_KEY}/京东签到_2021.07.08/helloworld`,
     //form: { text, desp },
     json: true,
     method: 'POST'
