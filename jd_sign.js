@@ -125,7 +125,7 @@ function sendNotificationIfNeed() {
   const bark_options ={
     method: 'POST',
     uri:  url,
-    headers: {
+    params: {
       'group': 'JD 签到'
     },
     json: true
